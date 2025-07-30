@@ -199,42 +199,7 @@
         );
     }
 
-    // Counter animation for stats
-    function animateCounters() {
-        var counters = document.querySelectorAll('.stat-number, .accomplishment-metric');
-        
-        counters.forEach(function(counter) {
-            if (isInViewport(counter)) {
-                var target = parseInt(counter.textContent);
-                if (!isNaN(target)) {
-                    animateCounter(counter, 0, target, 2000);
-                }
-            }
-        });
-    }
-
-    function animateCounter(element, start, end, duration) {
-        var startTime = null;
-        var startValue = start;
-        
-        function updateCounter(currentTime) {
-            if (!startTime) startTime = currentTime;
-            var progress = Math.min((currentTime - startTime) / duration, 1);
-            var currentValue = Math.floor(progress * (end - start) + start);
-            element.textContent = currentValue;
-            
-            if (progress < 1) {
-                requestAnimationFrame(updateCounter);
-            } else {
-                element.textContent = end;
-            }
-        }
-        
-        requestAnimationFrame(updateCounter);
-    }
-
-    // Initialize counter animations on scroll
-    window.addEventListener('scroll', throttle(animateCounters, 200));
+    // Counter animations removed - numbers display directly as written in HTML
 
     // Preload images for better performance
     function preloadImages() {
