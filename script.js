@@ -79,11 +79,7 @@
                 }
             }
 
-            // Parallax effect for hero section
-            var hero = document.querySelector('.hero');
-            if (hero && scrollTop < window.innerHeight) {
-                hero.style.transform = 'translateY(' + scrollTop * 0.5 + 'px)';
-            }
+            // Parallax effect removed to prevent z-index issues
 
             lastScrollTop = scrollTop;
         });
