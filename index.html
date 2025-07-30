@@ -30,12 +30,15 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: var(--primary-bg);
             color: var(--text-primary);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         /* Navigation */
@@ -49,11 +52,6 @@
             z-index: 1000;
             transition: all 0.3s ease;
             border-bottom: 1px solid var(--border-glass);
-        }
-
-        nav.scrolled {
-            background: rgba(15, 20, 25, 0.98);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
 
         .nav-container {
@@ -89,25 +87,8 @@
             padding: 0.5rem 0;
         }
 
-        .nav-links a:hover,
-        .nav-links a.active {
+        .nav-links a:hover {
             color: var(--accent-blue);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-2);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
         }
 
         /* Hero Section */
@@ -125,12 +106,9 @@
 
         .hero-content {
             padding: 2rem 0;
-            animation: fadeInLeft 1s ease-out;
         }
 
         .hero-image {
-            position: relative;
-            animation: fadeInRight 1s ease-out;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -148,29 +126,11 @@
             border: 2px solid var(--border-glass);
         }
 
-        .profile-image-container::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: var(--gradient-2);
-            border-radius: 22px;
-            z-index: -1;
-            opacity: 0.3;
-            filter: blur(10px);
-        }
-
         .profile-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.3s ease;
-        }
-
-        .profile-image-container:hover .profile-image {
-            transform: scale(1.05);
         }
 
         .hero-subtitle {
@@ -235,45 +195,11 @@
             color: var(--primary-bg);
         }
 
-        /* Floating Elements */
-        .floating-element {
-            position: absolute;
-            background: var(--nature-accent);
-            border-radius: 50%;
-            animation: float 8s ease-in-out infinite;
-            z-index: -1;
-        }
-
-        .floating-element:nth-child(1) {
-            width: 120px;
-            height: 120px;
-            top: 15%;
-            left: 5%;
-            animation-delay: 0s;
-        }
-
-        .floating-element:nth-child(2) {
-            width: 80px;
-            height: 80px;
-            top: 70%;
-            right: 10%;
-            animation-delay: 3s;
-        }
-
-        .floating-element:nth-child(3) {
-            width: 60px;
-            height: 60px;
-            bottom: 30%;
-            left: 15%;
-            animation-delay: 6s;
-        }
-
         /* Section Styles */
         section {
             padding: 8rem 2rem;
             max-width: 1400px;
             margin: 0 auto;
-            scroll-margin-top: 80px;
         }
 
         .section-title {
@@ -330,29 +256,11 @@
             backdrop-filter: blur(20px);
             border: 1px solid var(--border-glass);
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient-2);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
         }
 
         .stat-card:hover {
             transform: translateY(-5px);
             background: var(--glass-bg);
-        }
-
-        .stat-card:hover::before {
-            transform: scaleX(1);
         }
 
         .stat-number {
@@ -405,40 +313,13 @@
             overflow: hidden;
         }
 
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
         .project-content {
             padding: 2.5rem;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-2);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
         }
 
         .project-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow);
-        }
-
-        .project-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .project-card:hover .project-image img {
-            transform: scale(1.1);
         }
 
         .project-number {
@@ -490,12 +371,6 @@
             font-size: 0.8rem;
             font-weight: 500;
             border: 1px solid rgba(0, 196, 255, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .tech-tag:hover {
-            background: rgba(0, 196, 255, 0.25);
-            transform: translateY(-2px);
         }
 
         /* Skills Section */
@@ -513,20 +388,6 @@
             backdrop-filter: blur(20px);
             border: 1px solid var(--border-glass);
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-category::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient-2);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
         }
 
         .skill-category:hover {
@@ -534,23 +395,10 @@
             background: var(--glass-bg);
         }
 
-        .skill-category:hover::before {
-            transform: scaleX(1);
-        }
-
         .skill-category h3 {
             font-size: 1.3rem;
             margin-bottom: 1.5rem;
             color: var(--accent-blue);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skill-category h3::before {
-            content: '●';
-            color: var(--accent-green);
-            font-size: 1rem;
         }
 
         .skill-list {
@@ -562,7 +410,6 @@
             margin-bottom: 0.8rem;
             position: relative;
             padding-left: 1.5rem;
-            transition: color 0.3s ease;
         }
 
         .skill-list li::before {
@@ -573,36 +420,17 @@
             font-size: 0.8rem;
         }
 
-        .skill-list li:hover {
-            color: var(--text-primary);
-        }
-
         /* Contact Section */
         .contact {
             background: var(--secondary-bg);
             margin: 0 -2rem;
             padding: 8rem 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0, 196, 255, 0.05) 0%, rgba(78, 205, 196, 0.05) 100%);
-            z-index: 0;
         }
 
         .contact-content {
             max-width: 700px;
             margin: 0 auto;
             text-align: center;
-            position: relative;
-            z-index: 1;
         }
 
         .contact-form {
@@ -631,14 +459,12 @@
             color: var(--text-primary);
             font-size: 1rem;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: var(--accent-blue);
-            box-shadow: 0 0 20px rgba(0, 196, 255, 0.2);
         }
 
         .form-group textarea {
@@ -673,60 +499,6 @@
             border-top: 1px solid var(--border-glass);
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-30px);
-            }
-        }
-
-        .fade-in {
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         /* Mobile Responsiveness */
         @media (max-width: 1024px) {
             .hero {
@@ -748,11 +520,6 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
-            }
-
-            .hero {
-                min-height: 90vh;
-                padding: 100px 1rem 2rem;
             }
 
             .profile-image-container {
@@ -779,55 +546,27 @@
 
             section {
                 padding: 4rem 1rem;
-                scroll-margin-top: 60px;
-            }
-
-            .floating-element {
-                display: none;
-            }
-
-            .cta-buttons {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project-card {
-                min-width: unset;
-            }
-
-            .profile-image-container {
-                width: 250px;
-                height: 320px;
             }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav id="navbar">
+    <nav>
         <div class="nav-container">
             <a href="#home" class="logo">TPM</a>
             <ul class="nav-links">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        
         <div class="hero-content">
             <div class="hero-subtitle">Technical Project Manager</div>
             <h1 class="hero-title">Leading Innovation<br>Through Technology</h1>
@@ -844,4 +583,274 @@
         <div class="hero-image">
             <div class="profile-image-container">
                 <img src="images/profile_picture.jpg" alt="Professional headshot" class="profile-image">
-                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold;">Your Photo Here</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">
+            Technical leader with a proven track record of transforming complex challenges into scalable solutions
+        </p>
+        
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    As a Technical Project Manager specializing in R&D leadership, I drive innovation across software 
+                    development, IoT systems, and data engineering domains. My proven track record includes successfully 
+                    launching 4 complex applications and systems within just 10 months, each delivering measurable 
+                    business impact and operational excellence.
+                </p>
+                <p>
+                    I excel at transforming technical challenges into scalable solutions, from optimizing edge computing 
+                    file transfers that improved success rates by 390% to architecting enterprise-scale device management 
+                    platforms handling 500+ devices. My approach combines deep technical understanding with strategic 
+                    project management to ensure teams deliver breakthrough innovations on time and within scope.
+                </p>
+                <p>
+                    My leadership philosophy focuses on empowering cross-functional teams, fostering collaborative 
+                    innovation, and maintaining unwavering commitment to quality while meeting aggressive timelines. 
+                    I bridge the gap between technical possibility and business necessity, ensuring every project 
+                    delivers both technical excellence and quantifiable value.
+                </p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">4</span>
+                    <div class="stat-label">Systems Launched</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">10</span>
+                    <div class="stat-label">Months Timeline</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">98%</span>
+                    <div class="stat-label">Peak Performance</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">500+</span>
+                    <div class="stat-label">Devices Managed</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">
+            Breakthrough solutions that transformed operational efficiency and technical capabilities
+        </p>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <div style="background: linear-gradient(135deg, #00c4ff 0%, #4ecdc4 100%); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">📊</div>
+                </div>
+                <div class="project-content">
+                    <div class="project-number">Project 01</div>
+                    <h3 class="project-title">Edge Computing File Transfer Optimization</h3>
+                    <p class="project-description">
+                        Led the architectural design and development of a revolutionary edge computing file transfer solution 
+                        specifically optimized for video content distribution from distributed edge devices. Managed a 
+                        cross-functional team to overcome critical infrastructure limitations and implement robust protocols 
+                        for high-volume, high-reliability file transfers in challenging network conditions.
+                    </p>
+                    <div class="project-impact">
+                        <strong>Breakthrough Impact:</strong> Transformed system reliability by increasing video download success 
+                        rates from 20% to 98% - representing a 390% improvement and virtually eliminating download failures
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Edge Computing</span>
+                        <span class="tech-tag">Video Processing</span>
+                        <span class="tech-tag">File Transfer Protocols</span>
+                        <span class="tech-tag">Network Optimization</span>
+                        <span class="tech-tag">System Architecture</span>
+                        <span class="tech-tag">Performance Tuning</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">🛡️</div>
+                </div>
+                <div class="project-content">
+                    <div class="project-number">Project 02</div>
+                    <h3 class="project-title">AI-Powered Security & Activity Detection System</h3>
+                    <p class="project-description">
+                        Spearheaded the development of an intelligent edge computing security system capable of real-time 
+                        activity detection in high-risk and restricted operational areas. Integrated advanced computer vision 
+                        with authorization verification protocols to ensure compliance and enhance operational security across 
+                        multiple facility types and access levels.
+                    </p>
+                    <div class="project-impact">
+                        <strong>Security Enhancement:</strong> Delivered comprehensive monitoring solution that simultaneously 
+                        detects unauthorized activities and verifies operator credentials in restricted areas, significantly 
+                        improving security compliance and incident response capabilities
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Computer Vision</span>
+                        <span class="tech-tag">Edge AI</span>
+                        <span class="tech-tag">Security Systems</span>
+                        <span class="tech-tag">Real-time Processing</span>
+                        <span class="tech-tag">Authorization Systems</span>
+                        <span class="tech-tag">Activity Recognition</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <div style="background: linear-gradient(135deg, #ffb347 0%, #ff8c42 100%); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">🗺️</div>
+                </div>
+                <div class="project-content">
+                    <div class="project-number">Project 03</div>
+                    <h3 class="project-title">Overspeed Violation Management & GIS Platform</h3>
+                    <p class="project-description">
+                        Architected and delivered a comprehensive web-based management platform enabling supervisory teams 
+                        to efficiently review, validate, and process overspeed violations across multiple active jobsites. 
+                        Implemented sophisticated GIS integration with orthographic mapping capabilities, providing management 
+                        with high-fidelity visual context for accurate violation assessment and site condition analysis.
+                    </p>
+                    <div class="project-impact">
+                        <strong>Operational Excellence:</strong> Revolutionized violation review workflows through enhanced 
+                        data accuracy and visual site representation, enabling faster decision-making and improved 
+                        jobsite safety management across the entire operation network
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Web Development</span>
+                        <span class="tech-tag">GIS Integration</span>
+                        <span class="tech-tag">Orthographic Mapping</span>
+                        <span class="tech-tag">Data Visualization</span>
+                        <span class="tech-tag">Workflow Management</span>
+                        <span class="tech-tag">Safety Systems</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <div style="background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">⚙️</div>
+                </div>
+                <div class="project-content">
+                    <div class="project-number">Project 04</div>
+                    <h3 class="project-title">Enterprise-Scale Device Management & Strategic Planning System</h3>
+                    <p class="project-description">
+                        Designed and implemented a sophisticated web-based platform for comprehensive management of 500+ 
+                        IoT devices across multiple deployment sites. Developed advanced features for device positioning, 
+                        installation tracking, strategic planning, and supply chain optimization. Created executive-level 
+                        dashboards enabling data-driven managerial decisions for resource allocation and operational strategy.
+                    </p>
+                    <div class="project-impact">
+                        <strong>Strategic Impact:</strong> Empowered leadership with actionable insights for supply management 
+                        optimization, reduced deployment costs, and enhanced operational efficiency through comprehensive 
+                        device lifecycle management and strategic planning capabilities
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Enterprise Software</span>
+                        <span class="tech-tag">IoT Management</span>
+                        <span class="tech-tag">Supply Chain Optimization</span>
+                        <span class="tech-tag">Analytics Dashboard</span>
+                        <span class="tech-tag">Strategic Planning</span>
+                        <span class="tech-tag">Device Lifecycle Management</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Skills & Expertise</h2>
+        <p class="section-subtitle">
+            Technical leadership across multiple domains with focus on scalable, innovative solutions
+        </p>
+        
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Project Management & Leadership</h3>
+                <ul class="skill-list">
+                    <li>R&D Team Leadership & Coordination</li>
+                    <li>Cross-functional Project Management</li>
+                    <li>Agile & Scrum Methodologies</li>
+                    <li>Technical Architecture Planning</li>
+                    <li>Risk Assessment & Mitigation</li>
+                    <li>Stakeholder Management</li>
+                    <li>Budget & Timeline Management</li>
+                    <li>Quality Assurance & Testing</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Software Development</h3>
+                <ul class="skill-list">
+                    <li>Full-Stack Web Application Development</li>
+                    <li>RESTful API Design & Implementation</li>
+                    <li>Database Architecture & Optimization</li>
+                    <li>Cloud Infrastructure Management</li>
+                    <li>DevOps & CI/CD Pipeline Setup</li>
+                    <li>System Integration & Deployment</li>
+                    <li>Performance Monitoring & Optimization</li>
+                    <li>Security Implementation & Compliance</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>IoT & Edge Computing</h3>
+                <ul class="skill-list">
+                    <li>Edge Computing Architecture Design</li>
+                    <li>IoT Device Management Systems</li>
+                    <li>Real-time Data Processing</li>
+                    <li>Sensor Network Integration</li>
+                    <li>Edge AI & Computer Vision</li>
+                    <li>Protocol Optimization & File Transfer</li>
+                    <li>Activity Detection Systems</li>
+                    <li>Authorization & Security Monitoring</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Data Engineering & Analytics</h3>
+                <ul class="skill-list">
+                    <li>Data Pipeline Architecture</li>
+                    <li>GIS Integration & Mapping</li>
+                    <li>Analytics Dashboard Development</li>
+                    <li>Data Visualization & Reporting</li>
+                    <li>Business Intelligence Solutions</li>
+                    <li>Supply Chain Analytics</li>
+                    <li>Performance Metrics & KPI Tracking</li>
+                    <li>Enterprise Data Management</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-content">
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="section-subtitle">
+                Ready to discuss your next technical challenge or explore collaboration opportunities
+            </p>
+            
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label
